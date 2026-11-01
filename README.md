@@ -310,7 +310,7 @@ LR is usually generated synthetically (bicubic or MTF-based downsampling) — fi
 **Full-reference (distortion) metrics**
 - PSNR, SSIM, MS-SSIM — standard but insensitive to hallucination.
 - **SAM** (Spectral Angle Mapper), **ERGAS**, SCC, UIQI/Q-index, **Q2n** — spectral/radiometric fidelity, essential for multispectral SR.
-- **LPIPS**, DISTS — learned perceptual metrics ([LPIPS code](https://github.com/richzhang/PerceptualSimilarity)).
+- **LPIPS**, DISTS, JLD — learned perceptual metrics ([LPIPS code](https://github.com/richzhang/PerceptualSimilarity), [JLD code](https://github.com/shreshthsaini/jld)).
 
 **No-reference / distributional**
 - QNR (pansharpening, full-resolution protocol), NIQE, BRISQUE.
@@ -458,6 +458,7 @@ quadrantChart
 | SSIM / MS-SSIM | Full-reference | Structural similarity | Higher | Same blur bias, milder |
 | LPIPS | Learned perceptual | Deep-feature distance | Lower | Trained on natural RGB, not multispectral |
 | DISTS | Learned perceptual | Structure + texture | Lower | Same domain caveat |
+| JLD | Learned perceptual | DINOv2 features projected on a Jacobian lens | Lower | Needs a reference image; both images same size |
 | SAM | Spectral | Angle between spectral vectors | Lower | Blind to global intensity scaling |
 | ERGAS | Spectral-radiometric | Normalized band-wise RMSE | Lower | Scale-factor dependent |
 | SCC | Spatial | Correlation of high-pass detail | Higher | Needs good co-registration |
